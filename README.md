@@ -16,7 +16,7 @@ Projects focused on **JavaScript fundamentals** such as variables, loops, functi
 
 | Project Name | Description | Folder |
 |--------------|------------|--------|
-| Music App | Build music player using js | [View](./beginner) |
+| Music App | Build music player using js | [View](./beginner/music-player) |
 
 
 ---
