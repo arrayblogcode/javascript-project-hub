@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+    <script>
+        function myFetch(url, options = {}) {
+            return new Promise((resolve, reject) => {
+                const xhr = new XMLHttpRequest();
+                const method = options.method || "GET";
+                xhr.open(method, url);
+
+                xhr.setRequestHeader(
+                "Content-Type",
+                "application/json"
+                );        
+                xhr.onload = () => {
+                resolve({
+                    ok: xhr.status >= 200 && xhr.status < 300,
+                    status: xhr.status,
+                    json: () => Promise.resolve(JSON.parse(xhr.responseText)),
+                    text: () => Promise.resolve(xhr.responseText)
+                });
+                };
+
+                xhr.onerror = () => {
+                reject(new Error("Network Error"));
+                };
+                xhr.send(
+                options.body
+                    ? JSON.stringify(options.body)
+                    : null
+                );
+            });
+            }
+
+myFetch("https://jsonplaceholder.typicode.com/posts/1")
+  .then(response => {
+    if (!response.ok) {
+      throw new Error("Request failed");
+    }
+    return response.json();
+  })
+  .then(data => console.log(data))
+  .catch(err => console.error(err));
+
+myFetch("https://jsonplaceholder.typicode.com/posts", {
+  method: "POST",
+  body: {
+    title: "Hello",
+    body: "Building Fetch API",
+    userId: 1
+  }
+})
+.then(res => res.json())
+.then(data => console.log(data));
+
+
+    </script>
+    </body>
+</html>
