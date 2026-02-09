@@ -17,7 +17,7 @@ Projects focused on **JavaScript fundamentals** such as variables, loops, functi
 | Project Name | Description | Folder |
 |--------------|------------|--------|
 | Music App | Build music player using js | [View](./begginer/music-player) |
-| Fetch API | Build Fecth api from scratch  | [View](./fecthapi/index.html) |
+| Fetch API | Build Fecth api from scratch  | [View](./fetchapi) |
 
 
 ---
